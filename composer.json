@@ -2,7 +2,7 @@
 	"name": "dmstr/yii2-gii-command",
 	"description": "Running Yii2 Framework Code Generator Gii from command line",
 	"type": "yii2-extension",
-	"keywords": "["yii2","extension","gii","command line","shell","batch","code generator"]",
+	"keywords": ["yii2","extension","gii","command line","shell","batch","code generator"],
 	"license": "BSD-3-Clause",
 	"authors": [
 		{
