@@ -11,7 +11,7 @@ namespace dmstr\console\controllers;
 use dmstr\console\behaviors\DirModeApplicationBehavior;
 
 /**
- * Action to run a Gii generator.
+ * Runs generator from Gii module
  * @author Tobias Munk <schmunk@usrbin.de>
  * @since  2.0
  */
@@ -21,7 +21,7 @@ class GenerateAction extends \yii\base\Action
     public $generator;
 
     /**
-     * @inheritdoc
+     * Load specified generator and generate files
      */
     public function run()
     {
