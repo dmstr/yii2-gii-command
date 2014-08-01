@@ -75,8 +75,6 @@ class GiiController extends Controller
     public function options($id)
     {
         $generator = Yii::createObject($this->generators[$id]);
-        #var_dump(array_keys($generator->attributes));
-        #var_dump(['generate'],parent::options($id));
         return array_merge(
             parent::options($id),
             ['generate'],

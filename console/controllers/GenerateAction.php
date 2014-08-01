@@ -8,6 +8,8 @@
 
 namespace dmstr\console\controllers;
 
+use dmstr\console\behaviors\DirModeApplicationBehavior;
+
 /**
  * Action to run a Gii generator.
  * @author Tobias Munk <schmunk@usrbin.de>
@@ -17,30 +19,6 @@ class GenerateAction extends \yii\base\Action
 {
     public $generatorName;
     public $generator;
-
-    // TODO: is there are better way, needed for `./yii help gii`
-    public function getUniqueId()
-    {
-        return 'gii/' . $this->generatorName;
-    }
-
-    public function getActionSummaryReflectionClass()
-    {
-        $this->loadGenerator($this->generatorName);
-        return new \ReflectionClass($this->generator);
-    }
-
-    public function getActionHelpReflectionMethod()
-    {
-        $this->loadGenerator($this->generatorName);
-        return new \ReflectionMethod($this->generator, 'generate');
-    }
-
-    public function getOptionHelpsReflectionClass()
-    {
-        $this->loadGenerator($this->generatorName);
-        return $this->generator;
-    }
 
     /**
      * @inheritdoc
@@ -87,11 +65,8 @@ class GenerateAction extends \yii\base\Action
     private function loadGenerator($id)
     {
         if (isset($this->controller->generators[$this->generatorName])) {
-            // using a clone for multiple controller runs
-            //\Yii::createObject($this->controller->generators[$this->generatorName]);
+            // using a new object for multiple controller runs
             $this->generator = \Yii::createObject($this->controller->generators[$this->generatorName]);
-            #var_dump($this->generator->attributes);exit;
-            //clone($this->controller->generators[$this->generatorName]);
             foreach ($this->generator->attributes AS $name => $attribute) {
                 if ($this->controller->$name) {
                     $this->generator->$name = $this->controller->$name;
