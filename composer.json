@@ -14,5 +14,8 @@
 		"psr-4": {
 			"dmstr\\": ""
 		}
-	}
+	},
+    "extra": {
+        "bootstrap": "dmstr\\GiiControllerBootstrap"
+    }
 }
