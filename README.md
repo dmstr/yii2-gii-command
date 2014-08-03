@@ -1,6 +1,7 @@
 Giic2
 =====
-Running Yii2 Framework Code Generator Gii from command line
+
+Running Yii2 Framework Gii Code Generators from command line
 
 Installation
 ------------
@@ -13,19 +14,77 @@ Either run
 php composer.phar require --prefer-dist dmstr/yii2-gii-command "*"
 ```
 
-or add
+Setup
+-----
 
-```
-"dmstr/yii2-gii-command": "*"
-```
+**Make sure the Gii module is available in your console configuration.**
 
-to the require section of your `composer.json` file.
+The extension will register a `giic` command in the application bootstrap process, if Gii is available.
 
 
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+Show available generators:
 
-```php
-<?= \dmstr\AutoloadExample::widget(); ?>```
+```
+./yii help giic
+```
+
+**Note: giic is NOT generating and overwriting code files unless you use the option `--generate=1`**
+
+### Create a controller
+
+```
+./yii giic/controller --template=default --controller=my-first-giic-controller
+```
+
+### Create a model
+
+```
+./yii giic/model --template=default --tableName=foo --modelClass=Foo
+```
+
+### Run a giiant batch
+
+```
+./yii giiant-batch \
+  --tables=actor,address,category,city,country,customer,film,film_actor,film_category,film_text,inventory,language,payment,rental,staff,store \
+  --modelNamespace=app\\models \
+  --crudControllerNamespace=app\\controllers\\crud --crudViewPath=@app/views/crud
+```
+
+The above command will create models and CRUDs with relations for all given table names
+using the [giiant](https://github.com/schmunk42/yii2-giiant) generators.
+
+
+Known Limitations
+-----------------
+
+### Help command
+
+```
+./yii help giic/model
+```
+
+Will not show all available options, a workaround is to look at the generator attributes or run the command without any
+parameters and review the *Attribute Errors*.
+
+```
+$ ./yii giic/model
+Loading generator 'model'...
+
+Attribute Errors
+----------------
+template: A code template must be selected.
+tableName: Table Name cannot be blank.
+modelClass: Model Class cannot be blank if table name does not end with asterisk.
+```
+
+
+Links
+-----
+
+- [Packagist](https://packagist.org/packages/schmunk42/yii2-giiant)
+- [GitHub](https://github.com/schmunk42/yii2-giiant)
+- [diemeisterei GmbH](http://diemeisterei.de)

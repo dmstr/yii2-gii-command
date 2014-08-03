@@ -37,7 +37,7 @@ class GenerateAction extends \yii\base\Action
                     $answers[$file->id] = true;
                 }
             } else {
-                echo "NOT generating new files or overwriting existing files. Use --generate=true to enable file creation.\n";
+                echo "NOT generating new files or overwriting existing files. Use --generate=1 to enable file creation.\n";
             }
             $params['hasError'] = $generator->save($files, (array)$answers, $results);
             $params['results']  = $results;
