@@ -85,6 +85,10 @@ modelClass: Model Class cannot be blank if table name does not end with asterisk
 Links
 -----
 
-- [Packagist](https://packagist.org/packages/schmunk42/yii2-giiant)
-- [GitHub](https://github.com/schmunk42/yii2-giiant)
+- [Packagist](https://packagist.org/packages/dmstr/yii2-gii-command)
+- [GitHub](https://github.com/dmstr/yii2-gii-command)
 - [diemeisterei GmbH](http://diemeisterei.de)
+
+### Related Extensions
+
+- [giiant](https://github.com/schmunk42/yii2-giiant)
