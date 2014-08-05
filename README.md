@@ -19,7 +19,12 @@ Setup
 
 **Make sure the Gii module is available in your console configuration.**
 
-The extension will register a `giic` command in the application bootstrap process, if Gii is available.
+```
+$config['bootstrap'][] = 'gii';
+$config['modules']['gii'] = 'yii\gii\Module';
+```
+
+The extension will register a `giic` command alias in the application bootstrap process, if Gii is available.
 
 
 Usage
@@ -61,7 +66,7 @@ using the [giiant](https://github.com/schmunk42/yii2-giiant) generators.
 Known Limitations
 -----------------
 
-### Help command
+### Compatibility with Help command
 
 ```
 ./yii help giic/model
