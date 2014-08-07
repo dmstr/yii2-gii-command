@@ -25,9 +25,11 @@ class GenerateAction extends \yii\base\Action
      */
     public function run()
     {
-        \Yii::$app->attachBehavior('dirmode-fix',DirModeApplicationBehavior::className());
+        \Yii::$app->attachBehavior('dirmode-fix', DirModeApplicationBehavior::className());
 
-        echo "Loading generator '$this->generatorName'...\n\n";
+        echo $msg = "Loading generator '$this->generatorName'...";
+        echo "\n\n";
+        \Yii::trace($msg, __METHOD__);
         $generator = $this->loadGenerator($this->generatorName);
         if ($generator->validate()) {
             $files   = $generator->generate();
