@@ -1,6 +1,10 @@
 Giic2
 =====
 
+---
+**NOTE! THIS EXTENSION IS OUTDATED  AND WILL NOT BE MAINTAINED, FUNCTIONALITY IS AVAILABLE IN YII2-CORE SINCE 2.0.0-RC**
+---
+
 Running Yii2 Framework Gii Code Generators from command line
 
 Installation
